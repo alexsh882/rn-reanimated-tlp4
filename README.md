@@ -1,50 +1,51 @@
-# Welcome to your Expo app 👋
+# Trabajo Práctico N° 8
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Objetivo**: Implementar una pantalla de inicio con animaciones utilizando React Native
+Reanimated.
+Instrucciones:
 
-## Get started
+1. Crear un nuevo proyecto de React Native.
+2. Instalar la librería React Native Reanimated.
+3. Diseñar una pantalla de inicio con los siguientes elementos:
 
-1. Install dependencies
+   - Un título centrado en la pantalla.
+   - Un botón “Iniciar” en la parte inferior.
+   - Un fondo de pantalla con un gradiente de colores o un color sólido.
 
-   ```bash
-   npm install
-   ```
+4. Agregar las siguientes animaciones:
 
-2. Start the app
+   - Al cargar la pantalla, el título debe aparecer desde la parte superior con una
+     animación de “deslizamiento”.
+   - Al presionar el botón “Iniciar”, el fondo de pantalla debe cambiar de color con
+     una animación de “desvanecimiento”.
+   - Al presionar el botón "Iniciar", el título debe desaparecer con una animación
+     de "desvanecimiento".
 
-   ```bash
-    npx expo start
-   ```
+## Recursos opcionales:
 
-In the output, you'll find options to open the app in a
+- Componentes:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+  - TouchableOpacity para crear el botón "Iniciar".
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Funciones:
+  - useSharedValue para crear valores compartidos para las animaciones.
+  - withTiming para crear animaciones con temporización.
+  - useAnimatedStyle para aplicar estilos animados a los componentes.
+- Criterios de evaluación:
+  - La pantalla de inicio debe tener un diseño atractivo y coherente.
+  - Las animaciones deben ser suaves y naturales.
+  - El código debe estar organizado y comentado.
 
-## Get a fresh project
+## Para inicializar el proyecto
 
-When you're ready, run:
+1. Instalación de dependencias
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Iniciar expo
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+   npx expo start
+```
