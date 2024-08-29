@@ -2,17 +2,20 @@ import { StyleSheet, Button, View } from "react-native";
 
 import { HelloWave } from "@/components/HelloWave";
 import { ThemedText } from "@/components/ThemedText";
-import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming, FadingTransition  } from "react-native-reanimated";
+import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming, FadingTransition, FadeOut  } from "react-native-reanimated";
 import { useEffect } from "react";
 
 export default function HomeScreen() {
   const translateX = useSharedValue<number>(0);
+
+  const displayTitle = useSharedValue<boolean>(true);
 
   const pressed = useSharedValue<boolean>(false);
 
 
   const animatedTitleStyles = useAnimatedStyle(() => ({
     transform: [{ translateY: withSpring(translateX.value * 2) }],
+    opacity: withTiming(displayTitle.value ? 1 : 0),
   }));
 
   const animatedViewStyles = useAnimatedStyle(() => ({
@@ -22,6 +25,7 @@ export default function HomeScreen() {
 
   const handlePress = () => {
     pressed.value = !pressed.value;
+    displayTitle.value = !displayTitle.value;
   };
 
   useEffect(() => {
@@ -31,7 +35,7 @@ export default function HomeScreen() {
 
   return (
     <Animated.View layout={FadingTransition} style={[styles.view, animatedViewStyles]}>
-      <Animated.View style={[styles.titleContainer, animatedTitleStyles ]}>        
+      <Animated.View  exiting={FadeOut} style={[styles.titleContainer, animatedTitleStyles ]}>        
         <ThemedText type="title">Bienvenidos!</ThemedText>
         <HelloWave />
       </Animated.View>
@@ -54,6 +58,7 @@ const styles = StyleSheet.create({
     alignItems: "center",    
     marginTop: -50,
     gap: 20,
+    opacity: 1,
   },
   buttonContainerStyle: {
     width: "90%",
